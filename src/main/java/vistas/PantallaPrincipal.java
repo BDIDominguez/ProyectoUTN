@@ -36,6 +36,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btIncidencia = new javax.swing.JButton();
         btEspTec = new javax.swing.JButton();
         btTecEsp = new javax.swing.JButton();
+        btEstadisticas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Proyecto FInal UTN");
@@ -46,7 +47,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pVistas.setLayout(pVistasLayout);
         pVistasLayout.setHorizontalGroup(
             pVistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1161, Short.MAX_VALUE)
+            .addGap(0, 1249, Short.MAX_VALUE)
         );
         pVistasLayout.setVerticalGroup(
             pVistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,6 +80,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btTecEsp.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         btTecEsp.setText("Asignar Tecnicos a Esp");
 
+        btEstadisticas.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        btEstadisticas.setText("Estadisticas");
+
         pBotones.setLayer(btSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
         pBotones.setLayer(btAplicacion, javax.swing.JLayeredPane.DEFAULT_LAYER);
         pBotones.setLayer(btEspecialidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -87,19 +91,21 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pBotones.setLayer(btIncidencia, javax.swing.JLayeredPane.DEFAULT_LAYER);
         pBotones.setLayer(btEspTec, javax.swing.JLayeredPane.DEFAULT_LAYER);
         pBotones.setLayer(btTecEsp, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pBotones.setLayer(btEstadisticas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout pBotonesLayout = new javax.swing.GroupLayout(pBotones);
         pBotones.setLayout(pBotonesLayout);
         pBotonesLayout.setHorizontalGroup(
             pBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btAplicacion, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-            .addComponent(btEspecialidad, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-            .addComponent(btSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-            .addComponent(btEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-            .addComponent(btCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-            .addComponent(btIncidencia, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-            .addComponent(btEspTec, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-            .addComponent(btTecEsp, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+            .addComponent(btAplicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btEspecialidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btIncidencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btEspTec, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btTecEsp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btEstadisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pBotonesLayout.setVerticalGroup(
             pBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +122,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addComponent(btEspTec)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btIncidencia)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
+                .addComponent(btEstadisticas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addComponent(btTecEsp)
                 .addGap(156, 156, 156)
                 .addComponent(btSalir)
@@ -182,6 +190,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     public javax.swing.JButton btEmpleado;
     public javax.swing.JButton btEspTec;
     public javax.swing.JButton btEspecialidad;
+    public javax.swing.JButton btEstadisticas;
     public javax.swing.JButton btIncidencia;
     public javax.swing.JButton btSalir;
     public javax.swing.JButton btTecEsp;

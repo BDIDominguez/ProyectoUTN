@@ -213,6 +213,7 @@ public class ControladorVistaIncidente implements ActionListener, ListSelectionL
             String aplicacion = inci.getAplicacion().getId() + " - " + inci.getAplicacion().getNombre();
             String tecnico = inci.getTecnico().getLegajo() + " - " + inci.getTecnico().getNombre();
             modelo.addRow(new Object[]{inci.getId(), cliente, aplicacion, tecnico, inci.getInicio(), inci.getTiempoRep(),inci.getFinalizado(), inci.getEstado() });
+            
         }
         vista.jTabla.setModel(modelo);
     }
