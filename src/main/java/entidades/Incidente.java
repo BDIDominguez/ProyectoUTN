@@ -28,9 +28,7 @@ public class Incidente implements Serializable {
     int id;
     @ManyToOne
     Tecnico tecnico;
-    @Temporal(TemporalType.DATE)
     Date inicio;
-    @Temporal(TemporalType.DATE)
     Date finalizado;
     @ManyToOne
     Aplicacion aplicacion;

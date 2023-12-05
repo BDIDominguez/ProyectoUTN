@@ -76,11 +76,16 @@ public class VistaIncidente extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel5.setText("Tecnico");
 
+        dcInicio.setDateFormatString("dd/MM/yyyy HH:mm:ss");
         dcInicio.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel6.setText("Demora");
 
+        dcTiempo.setDateFormatString("dd/MM/yyyy HH:mm:ss");
+        dcTiempo.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+
+        dcFinalizado.setDateFormatString("dd/MM/yyyy HH:mm:ss");
         dcFinalizado.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
@@ -233,7 +238,7 @@ public class VistaIncidente extends javax.swing.JInternalFrame {
                     .addComponent(btEliminar)
                     .addComponent(btSalir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

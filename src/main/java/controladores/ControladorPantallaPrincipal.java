@@ -5,6 +5,9 @@ import entidades.Incidente;
 import entidades.Tecnico;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -87,76 +90,71 @@ public class ControladorPantallaPrincipal implements ActionListener {
             ctrl.iniciar();
         }
         if (e.getSource() == menu.btEstadisticas) {
-            // Obtener el tecnico con mas Intervenciones
+            // Obtener el tecnico con mas Intervenciones y menos incidencias
             Controladora data = new Controladora();
             ArrayList<Incidente> incidentes = data.traerListaIncidente();
             ArrayList<Acumulador> cuenta = new ArrayList();
-            // Iteras sobre la lista de incidentes
             for (Incidente incidente : incidentes) {
-                // Buscas el técnico en la lista de acumuladores
                 Acumulador acumulador = buscarAcumuladorPorTecnico(cuenta, incidente.getTecnico());
-
-                // Si el técnico no existe en la lista, lo creas
                 if (acumulador == null) {
                     acumulador = new Acumulador(incidente.getTecnico(), 0);
                     cuenta.add(acumulador);
                 }
-
-                // Incrementas el contador
                 acumulador.setContador(acumulador.getContador() + 1);
             }
-
-            // Ahora la lista 'cuenta' tiene la información que necesitas
-            // Puedes imprimir o hacer lo que necesites con la lista de acumuladores
-            //for (Acumulador acumulador : cuenta) {
-            //    System.out.println("Técnico: " + acumulador.getTec().getNombre() + ", Contador: " + acumulador.getContador());
-            //}
-            // Buscando el Maximo  y minimo 
-            // Encuentra el máximo usando un comparador
             Acumulador tecnicoMax = Collections.max(cuenta, Comparator.comparingInt(Acumulador::getContador));
-
-            // Encuentra el mínimo usando un comparador
             Acumulador tecnicoMin = Collections.min(cuenta, Comparator.comparingInt(Acumulador::getContador));
-
-            // Imprime o haz lo que necesites con el técnico con el contador más alto
             System.out.println("Técnico con + Reparaciones: " + tecnicoMax.getTec().getNombre() + ", Cantidad: " + tecnicoMax.getContador());
-
-            // Imprime o haz lo que necesites con el técnico con el contador más bajo
             System.out.println("Técnico con - Reparaciones: " + tecnicoMin.getTec().getNombre() + ", Cantidad: " + tecnicoMin.getContador());
-
-            //JOptionPane.showMessageDialog(menu, "El Tecncico Con mas Incidencias es: " + tec.getNombre());
+            // Obtener el Tecnico con el menor tiempo de reparacion
+            Duration durac = Duration.ZERO;
+            Boolean asignada = false;
+            Tecnico tec = new Tecnico();
+            
+            for (Incidente incidente : incidentes) {
+                if (incidente.getEstado().toString().equals("TERMINADO")){
+                    LocalDateTime fechaInicio = incidente.getInicio().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+                    LocalDateTime fechaFin = incidente.getFinalizado().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+                    if (!asignada){
+                        durac = Duration.between(fechaInicio, fechaFin);
+                        tec = incidente.getTecnico();
+                        asignada = true;
+                    }else{
+                        Duration nuevo = Duration.between(fechaInicio, fechaFin);
+                        if (durac.compareTo(nuevo) < 0 ){
+                            durac = nuevo;
+                            tec = incidente.getTecnico();
+                        }
+                    }
+                }
+            }
+            System.out.println("El tecnico con la resolucion + rapida fue " + tec.getNombre() + " en un tiempo de " + durac);
+            
+            
         }
 
     }
 
     public class Acumulador {
-
         private Tecnico tec;
         private int contador;
-
         public Acumulador(Tecnico tec, int contador) {
             this.tec = tec;
             this.contador = contador;
         }
-
         public Tecnico getTec() {
             return tec;
         }
-
         public void setTec(Tecnico tec) {
             this.tec = tec;
         }
-
         public int getContador() {
             return contador;
         }
-
         public void setContador(int contador) {
             this.contador = contador;
         }
-
     }
-
     private static Acumulador buscarAcumuladorPorTecnico(ArrayList<Acumulador> cuenta, Tecnico tecnico) {
         for (Acumulador acumulador : cuenta) {
             if (acumulador.getTec().equals(tecnico)) {
@@ -165,4 +163,6 @@ public class ControladorPantallaPrincipal implements ActionListener {
         }
         return null;
     }
+   
+    
 }
